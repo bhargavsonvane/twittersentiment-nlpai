@@ -1,46 +1,41 @@
-# Análisis de Sentimiento en Tweets
+# Sentiment Analysis in Tweets
 
-En este proyecto, vamos a ver cómo podemos realizar análisis de Sentimiento en Tweets sin necesidad de tener conocimientos avanzados sobre técncas de NLP.
+In this project, we are going to see how we can perform Sentiment analysis on Tweets without having to have advanced knowledge of NLP techniques.
 
-**NOTA IMPORTANTE:** En este proyecto vamos a utilizar una capa gratis del servicio de análisis de texto de Goggle Cloud Platform (GCP). Se explicará brevemente cómo solicitar el acceso a la API respectiva y utilizarla para el fin requerido. No obstante, se recomienda que cada paso que se de durante la configuración de dicho servicio se haga de forma consciente, ya que en caso de no hacerlo, se pueden incurrir en costos no planificados.
+**IMPORTANT NOTE:** In this project we are going to use a free layer of the Goggle Cloud Platform (GCP) text analysis service. How to request access to the respective API and use it for the required purpose will be briefly explained. However, it is recommended that each step taken during the configuration of this service be done in a conscious way, since failure to do so may incur unplanned costs.
 
-**Fuente**: Este proyecto fue adaptado del siguiente [artículo](https://www.freecodecamp.org/news/how-to-make-your-own-sentiment-analyzer-using-python-and-googles-natural-language-api-9e91e1c493e/). Puede ser de utilidad en caso de que algunos conceptos no queden claros en este documento.
 
-## Requisitos
+## Requirements
 
-- Python >= 3.7 (aunque es muy posible que funcione en la mayoría de las versiones 3.\*).
-- Cuenta en GCP.
-- Cuenta de Desarrollador en Twitter.
+- Python> = 3.4
+- Account in GCP.
+- Developer account on Twitter.
 
-Con respecto a los dos últimos requisitos, se detallarán un poco más a continuación.
 
-### Cuenta en GCP
+### GCP account
 
-Al momento de escribir este tutorial, es posible crear una cuenta en GCP a partir de una cuenta Google regular (Gmail). Si es la primera vez que la configuramos, Google nos dará de forma gratuita 300 USD en créditos a ser utilizados en 12 meses.
+If it is the first time that we configure it, Google will give us 300 USD in credits for free to be used in 12 months.
 
-Incluso es posible que quieras crearte una cuenta Gmail nueva para hacer este proyecto, esto también lo puedes hacer de forma gratuita ingresando a [Gmail](https://google.com/gmail).
+Once the account is created, we enter the GCP console . If it is the first time that we use it, it will ask us for a series of data, including information about a Credit Card. Since the Terms of Service can change at any time, I recommend reading them carefully . Currently they indicate that they only require that information to verify the account and so that there is a means of collection in case expenses are incurred.
 
-Una vez creada la cuenta, ingresamos a la [consola de GCP](https://console.cloud.google.com). Si es la primera vez que la utilizamos, nos va a pedir una serie de datos, incluídos datos sobre una Tarjeta de Crédito. **Puesto que los Términos de Servicio pueden cambiar en cualquier momento, recomiendo leerlos atentamente**. Actualmente indican que solo requieren esa información para verificar la cuenta y para que exista un medio de cobro en caso de que se incurran en gastos.
+#### Creation of the Project in GCP
 
-#### Creación del Proyecto en GCP
-
-Una vez dentro de la consola, se nos mostrará el dashboard donde aparecerá un resumen de los servicios que tenemos activos, si es la primera vez que la usas seguramente no tendrá mucha información.
+Once inside the console, the dashboard will be shown where a summary of the services that we have active will appear, if it is the first time you use it, it will surely not have much information.
 
 <p align="center">
-<img src="resources/GCP_Dashboard.png" width=600px height=350px/>
+<img src="resources/GCP_Dashboard.png"/>
 </p>
 
-Un proyecto en GCP no es más que una forma de manejar los servicios que queramos incorporar de manera centralizada. Los proyectos permiten controlar gastos y autorizaciones de acceso a servicios que se configuren dentro de GCP. Para poder utilizar cualquier servicio es necesario crear un proyecto.
+A project in GCP is nothing more than a way to manage the services that we want to incorporate centrally. Projects allow you to control expenses and access authorizations to services that are configured within GCP. In order to use any service it is necessary to create a project.
 
 <p align="center">
-<img src="resources/create_project.png" width=600px height=350px/>
+<img src="resources/create_project.png">
 </p>
 
-Si durante la bienvenida no nos indicó que debemos crear un proyecto, podemos utilizar el siguiente [link](https://console.cloud.google.com/projectcreate).
 
-#### Activación del Servicio de NLP y obtención de llave de permiso en GCP
+#### Activating the NLP Service and obtaining permission key in GCP
 
-Para utilizar la API de Cloud Natural Language en nuestra aplicación, debemos activar dicha API dentro del proyecto y obtener una llave de acceso en formato JSON, en las siguientes imágenes se detalla dicho procedimiento:
+To use the Cloud Natural Language API in our application, we must activate said API within the project and obtain an access key in JSON format, this procedure is detailed in the following images:
 
 <p align="center">
 <img src="resources/access_GCP_APIs.png" width=600px height=350px/>
@@ -50,47 +45,47 @@ Para utilizar la API de Cloud Natural Language en nuestra aplicación, debemos a
 <img src="resources/enable_APIs.png" width=600px height=350px/>
 </p>
 
-Al activar la API, pide la vinculación con la cuenta de facturación.
+When activating the API, it asks to be linked to the billing account.
 
 <p align="center">
 <img src="resources/activate_NLP_API.png" width=600px height=350px/>
 </p>
 
-Ahora, obtenemos las credenciales en formato json que nos permitirá conectarnos al servicio NLP de nuestro proyecto:
+Now, we obtain the credentials in json format that will allow us to connect to the NLP service of our project:
 
 <p align="center">
-<img src="resources/create_credentials.png" width=600px height=350px/>
+<img src="resources/create_credentials.png" />
 </p>
 
-Necesitamos ahora crear una cuenta de servicio,la cual puede llevar cualquier nombre:
+We now need to create a service account, which can have any name:
 
 <p align="center">
-<img src="resources/service_account_name.png" width=600px height=350px/>
+<img src="resources/service_account_name.png" />
 </p>
 
-Continuamos configurándola como se indica y obtenemos el archivo json:
+We continue configuring it as indicated and we get the json file:
 
 <p align="center">
-<img src="resources/service_account_permissions.png" width=600px height=350px/>
+<img src="resources/service_account_permissions.png" />
 </p>
 
 <p align="center">
-<img src="resources/create_json_key.png" width=600px height=350px/>
+<img src="resources/create_json_key.png" />
 </p>
 
-### Cuenta en Twitter Developers
+### Twitter Developers account
 
-Puesto que el interés de la aplicación no es solo el análisis de sentimiento, sino el que estos provengan desde Twitter, debemos contar con una cuenta en [Twitter Developers](https://developer.twitter.com/en).
+Since the interest of the application is not only sentiment analysis, but that these come from Twitter, we must have an account on [Twitter Developers](https://developer.twitter.com/en).
 
-Este paso es quizás el que tome más tiempo, ya que acceder a la API de Twitter requiere crear dentro de la cuenta de Twitter Developers una App, y para ello debemos llenar un registro en donde exponemos el uso que le daremos a dicha aplicación.
+This step is perhaps the one that takes the most time, since accessing the Twitter API requires creating an App within the Twitter Developers account, and for this we must fill out a record where we expose the use that we will give to said application.
 
-Una vez autorizada la creación de la App, podemos navegar hasta el [detalle de la misma](https://developer.twitter.com/en/apps). Ahí buscamos en la pestaña Keys and Tokens, en caso de ser necesario hacer click en el botón “Create” en “Access token & access token secret”.
+Once the creation of the App is authorized, we can navigate to its  [details](https://developer.twitter.com/en/apps). There we look at the Keys and Tokens tab, if necessary, click on the “Create” button in “Access token & access token secret”.
 
 <p align="center">
 <img src="resources/twitter_app.png" width=600px height=350px/>
 </p>
 
-Crear un archivo json con la siguiente estructura:
+Create a json file with the following structure:
 
 Keys.json:
 
@@ -103,50 +98,49 @@ Keys.json:
 }
 ```
 
-Una vez se tenga este archivo, se cuenta con todo lo necesario para probar la aplicación.
+Once you have this file, you have everything you need to test the application.
+## Testing the application
 
-## Probando la aplicación
+To verify that everything works correctly, a file is included that can be run on the command line and observe the results.
 
-Para verificar que todo funcione correctamente, se incluye un archivo que se puede ejecutar en línea de comando y observar los resultados.
+The steps to follow are those:
 
-Los pasos a seguir son los siguientes:
-
-### Clonar este repositorio
+### Clone this repository
 
 ```
 git clone https://github.com/Marior87/SentimentTwitter.git
 cd SentimentTwitter
 ```
 
-### Crear entorno virtual de Python e instalar dependencias
+### Create Python Virtual Environment and Install Dependencies
 
 ```
-python3 -m venv <nombre_cualquiera>
+python3 -m venv <virtualenvname>
 ```
 
-En mi caso, < nombre cualquiera > es "sent".
+In my case, <any name> is "virtualenvname".
 
 ```
-source sent/bin/activate
+source virtualenvname/bin/activate
 pip3 install -r requirements.txt
 ```
 
-### Configurar variable de entorno de Google
+### Set Google environment variable
 
-Ejecutar en la línea de comandos:
+Run at the command line:
 
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=<path-to-gcp-credential-file.json>
 ```
 
-< path-to-gcp-credential-file.json > es el archivo que descargamos con las credenciales de Google.
+<path-to-gcp-credential-file.json> is the file that we downloaded with the Google credentials.
 
-**Nota:** Esto puede ser diferente para Sistemas Operativos Windows, en mi caso estoy en Ubuntu pero debe servir de la misma manera para entornos Mac.
+**Note:** This may be different for Windows Operating Systems, in my case I am on Ubuntu but it should work in the same way for Mac environments.
 
-### Ejecutar archivo de prueba
+### Run test file
 
 ```
-python3 aplicacion.py -q NLP
+python3 application.py -q NLP
 ```
 
-Se puede sustituir "NLP" por cualquier otro query de búsqueda de interés, si es más de una palabra se debe utilizar entre comillas dobles: "Machine Learning".
+You can replace "NLP" with any other search query of interest, if it is more than one word it should be used in double quotes: "Machine Learning".
