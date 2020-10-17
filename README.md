@@ -29,7 +29,7 @@ Once inside the console, the dashboard will be shown where a summary of the serv
 A project in GCP is nothing more than a way to manage the services that we want to incorporate centrally. Projects allow you to control expenses and access authorizations to services that are configured within GCP. In order to use any service it is necessary to create a project.
 
 <p align="center">
-<img src="resources/create_project.png">
+<img src="resources/create_project.png" />
 </p>
 
 
@@ -38,17 +38,17 @@ A project in GCP is nothing more than a way to manage the services that we want 
 To use the Cloud Natural Language API in our application, we must activate said API within the project and obtain an access key in JSON format, this procedure is detailed in the following images:
 
 <p align="center">
-<img src="resources/access_GCP_APIs.png" width=600px height=350px/>
+<img src="resources/access_GCP_APIs.png" />
 </p>
 
 <p align="center">
-<img src="resources/enable_APIs.png" width=600px height=350px/>
+<img src="resources/enable_APIs.png" />
 </p>
 
 When activating the API, it asks to be linked to the billing account.
 
 <p align="center">
-<img src="resources/activate_NLP_API.png" width=600px height=350px/>
+<img src="resources/activate_NLP_API.png" />
 </p>
 
 Now, we obtain the credentials in json format that will allow us to connect to the NLP service of our project:
@@ -82,7 +82,7 @@ This step is perhaps the one that takes the most time, since accessing the Twitt
 Once the creation of the App is authorized, we can navigate to its  [details](https://developer.twitter.com/en/apps). There we look at the Keys and Tokens tab, if necessary, click on the “Create” button in “Access token & access token secret”.
 
 <p align="center">
-<img src="resources/twitter_app.png" width=600px height=350px/>
+<img src="resources/twitter_app.png"/>
 </p>
 
 Create a json file with the following structure:
@@ -108,8 +108,8 @@ The steps to follow are those:
 ### Clone this repository
 
 ```
-git clone https://github.com/Marior87/SentimentTwitter.git
-cd SentimentTwitter
+git clone https://github.com/bhargavsonvane/twittersentiment-nlpai.git
+cd twittersentiment-nlpai
 ```
 
 ### Create Python Virtual Environment and Install Dependencies
