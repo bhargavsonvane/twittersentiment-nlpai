@@ -105,20 +105,21 @@ def clean_tweets(tweet):
 
 def get_sentiment_score(tweet):
     """
-    Función que utiliza la API NLP de Google para realizar análisis de sentimiento
-    sobre un texto.
+    Function used by Google's NLP API to perform sentiment analysis
+    about a text.
 
     Args:
-        tweet: Tweet (o texto) a realizar análisis de sentimiento.
+        tweet: Tweet (or text) to perform sentiment analysis.
 
     Returns:
-        sentiment_score: Puntaje de sentimiento cuyo rango va desde -1.0 (negativo) hasta
-        1.0 (positivo).
+        sentiment_score: Sentiment score ranging from -1.0 (negative) to
+        
+1.0 (positive).
 
-    Nota:
-        El análisis de sentimiento de Google también arroja un valor de magnitud ("magnitude").
-        Este valor es usado para determinar la "fuerza" general del sentimiento calculado. Para
-        mayor detalle consultar:
+    Note:
+        Google's sentiment analysis also returns a magnitude value ("magnitude").
+        This value is used to determine the overall "strength" of the calculated sentiment. For
+        more detail consult:
             https://cloud.google.com/natural-language/docs/basics#interpreting_sentiment_analysis_values
     """
 
@@ -135,14 +136,16 @@ def get_sentiment_score(tweet):
 
 def analyze_tweets(keyword, total_tweets):
     """
-    Función general para realizar el análisis de tweets, engloba las funciones anteriores.
+    General function to perform the analysis of tweets, includes the previous functions.
 
     Args:
-        keyword: Palabra a buscar en Twitter.
-        total_tweets: Cantidad total de tweets a buscar.
+        keyword: 
+Word to search on Twitter.
+        total_tweets: Total number of tweets to search
 
     Returns:
-        final_score: Promedio del score de sentimiento entre los tweets analizados.
+        final_score: 
+Average of the sentiment score among the analyzed tweets.
     """
 
     score = 0
@@ -161,10 +164,10 @@ def analyze_tweets(keyword, total_tweets):
 
 # Example Cases:
 
-# 1.- Probando comentarios específicos:
-""" bad_comment = get_sentiment_score('¡Esta lavadora no sirve para nada!')
-good_comment = get_sentiment_score('Esta lavadora es buenisima')
-neutral_comment = get_sentiment_score('Lavadora mas o menos')
+# 1.- Testing specific comments:
+""" bad_comment = get_sentiment_score('¡This washing machine is useless!')
+good_comment = get_sentiment_score('This washing machine is great')
+neutral_comment = get_sentiment_score('Washer but the least')
 
 print('bad_comment_score:', bad_comment)
 print('good_comment_score:', good_comment)
