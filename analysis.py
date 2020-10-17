@@ -1,6 +1,3 @@
-"""
-Adaptado de: https://www.freecodecamp.org/news/how-to-make-your-own-sentiment-analyzer-using-python-and-googles-natural-language-api-9e91e1c493e/
-"""
 
 import tweepy
 import os
@@ -13,7 +10,7 @@ from google.cloud.language import enums
 from google.cloud.language import types
 
 
-# Accedemos a las claves de acceso a nuestra App de Twitter:
+# We access the access codes to our Twitter App:
 with open('Keys.json') as f:
     data = json.load(f)
 
@@ -25,8 +22,8 @@ CONS_SECRET = data["API_secret key"]
 
 def authentication(cons_key, cons_secret, acc_token, acc_secret):
     """
-    Función para obtener acceso a una app de Twitter dadas las
-    claves.
+    Function to get access to a Twitter app given the
+    keys.
 
     Args:
         cons_key: Consumer Key.
@@ -35,7 +32,7 @@ def authentication(cons_key, cons_secret, acc_token, acc_secret):
         acc_secret: Access Token Secret.
 
     Returns:
-        api con el acceso garantizado.
+        api with guaranteed access.
     """
 
     auth = tweepy.OAuthHandler(cons_key, cons_secret)
@@ -47,15 +44,15 @@ def authentication(cons_key, cons_secret, acc_token, acc_secret):
 
 def search_tweets(keyword, total_tweets):
     """
-    Función para buscar tweets en español dados un keyword y una cantidad total de tweets. En
-    este caso se limitan también a buscar en un periodo no mayor a 24 horas.
+    Function to search for tweets in English given a keyword and a total number of tweets. In
+    in this case they are also limited to searching in a period no longer than 24 hours.
 
     Args:
-        keyword: Palabra a buscar en Twitter.
-        total_tweets: Cantidad total de tweets a buscar.
+        keyword: Word to search on Twitter.
+        total_tweets: Total number of tweets to search.
 
     Returns:
-        search result: Iterable con toda la información de los tweets encontrados.
+        search result: Iterable with all the information of the tweets found.
     """
 
     today_datetime = datetime.today().now()
@@ -73,34 +70,34 @@ def search_tweets(keyword, total_tweets):
 
 def clean_tweets(tweet):
     """
-    Función para limpiar los tweets antes de ser enviados a la API de análisis de
-    sentimiento.
+    Function to clean tweets before they are sent to the analysis API
+    sentiments.
 
-    Nota:   La API de Google es bastante flexible a la hora de realizar análisis de
-            sentimiento. No estoy seguro de que todas estas "limpiezas" sean del todo
-            necesarias.
+    Note:   The Google Cloud Natural Language API is quite flexible when it comes to performing analysis of
+            sentiments.. I'm not sure all these "cleanings" are at all
+            necessary.
 
     Args:
-        tweet: Tweet (o texto) a limpiar.
+        tweet: Tweet (the text) to clear.
 
     Returns:
-        clean_tweet: Tweet ya limpio para proceder a realizar análisis de sentimiento.
+        clean_tweet: Tweet already clean to proceed with sentiment analysis.
     """
 
-    # Removemos el usuario en el tweet
+    # We remove the user in the tweet
     user_removed = re.sub(r'@[A-Za-z0-9]+', '', tweet.decode('utf-8'))
 
-    # Removemos cualquier link presente en el tweet
+    # We remove any link present in the tweet
     link_removed = re.sub('https?://[A-Za-z0-9./]+', '', user_removed)
 
-    # llevamos todo a minúsculas
+    # we take everything to lowercase
     lower_case_tweet = link_removed.lower()
 
-    # Instanciamos un tokenizador y, de aucerdo a sus reglas, creamos la lista de tokens
+    # We instantiate a tokenizer and, according to its rules, create the list of tokens
     tok = WordPunctTokenizer()
     words = tok.tokenize(lower_case_tweet)
 
-    # Unimos los tokens para crear un único string a ser enviado
+    # We join the tokens to create a single string to be sent
     clean_tweet = (' '.join(words)).strip()
 
     return clean_tweet
@@ -162,7 +159,7 @@ def analyze_tweets(keyword, total_tweets):
     return final_score, lista_tweets
 
 
-# Casos Ejemplo:
+# Example Cases:
 
 # 1.- Probando comentarios específicos:
 """ bad_comment = get_sentiment_score('¡Esta lavadora no sirve para nada!')
