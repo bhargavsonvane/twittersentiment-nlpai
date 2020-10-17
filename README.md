@@ -1,3 +1,12 @@
+<p>
+  <a href="https://www.linkedin.com/in/bhargavsonvane/" target="_blank">
+   <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white">
+ </a>
+  <a href="https://opensource.org/licenses/MIT" target="_blank">
+   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?&style=for-the-badge&logoColor=white">
+ </a>
+</p>
+
 # Sentiment Analysis in Tweets
 
 In this project, we are going to see how we can perform Sentiment analysis on Tweets without having to have advanced knowledge of NLP techniques.
