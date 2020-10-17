@@ -11,7 +11,7 @@
 
 In this project, we are going to see how we can perform Sentiment analysis on Tweets without having to have advanced knowledge of NLP techniques.
 
-**IMPORTANT NOTE:** In this project we are going to use a free layer of the Goggle Cloud Platform (GCP) text analysis service. How to request access to the respective API and use it for the required purpose will be briefly explained. However, it is recommended that each step taken during the configuration of this service be done in a conscious way, since failure to do so may incur unplanned costs.
+**IMPORTANT NOTE:** In this project we are going to use a free layer of the Google Cloud Platform (GCP) text analysis service. How to request access to the respective API and use it for the required purpose will be briefly explained. However, it is recommended that each step taken during the configuration of this service be done in a conscious way, since failure to do so may incur unplanned costs.
 
 
 ## Requirements
