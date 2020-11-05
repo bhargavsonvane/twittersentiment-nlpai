@@ -31,56 +31,21 @@ Once the account is created, we enter the GCP console . If it is the first time 
 
 Once inside the console, the dashboard will be shown where a summary of the services that we have active will appear, if it is the first time you use it, it will surely not have much information.
 
-<p align="center">
-<img src="resources/GCP_Dashboard.png"/>
-</p>
-
 A project in GCP is nothing more than a way to manage the services that we want to incorporate centrally. Projects allow you to control expenses and access authorizations to services that are configured within GCP. In order to use any service it is necessary to create a project.
-
-<p align="center">
-<img src="resources/create_project.png" />
-</p>
 
 
 #### Activating the NLP Service and obtaining permission key in GCP
 
 To use the Cloud Natural Language API in our application, we must activate said API within the project and obtain an access key in JSON format, this procedure is detailed in the following images:
 
-<p align="center">
-<img src="resources/access_GCP_APIs.png" />
-</p>
-
-<p align="center">
-<img src="resources/enable_APIs.png" />
-</p>
-
 When activating the API, it asks to be linked to the billing account.
-
-<p align="center">
-<img src="resources/activate_NLP_API.png" />
-</p>
 
 Now, we obtain the credentials in json format that will allow us to connect to the NLP service of our project:
 
-<p align="center">
-<img src="resources/create_credentials.png" />
-</p>
-
 We now need to create a service account, which can have any name:
 
-<p align="center">
-<img src="resources/service_account_name.png" />
-</p>
+We continue configuring it as indicated and we get the json file
 
-We continue configuring it as indicated and we get the json file:
-
-<p align="center">
-<img src="resources/service_account_permissions.png" />
-</p>
-
-<p align="center">
-<img src="resources/create_json_key.png" />
-</p>
 
 ### Twitter Developers account
 
@@ -90,9 +55,6 @@ This step is perhaps the one that takes the most time, since accessing the Twitt
 
 Once the creation of the App is authorized, we can navigate to its  [details](https://developer.twitter.com/en/apps). There we look at the Keys and Tokens tab, if necessary, click on the “Create” button in “Access token & access token secret”.
 
-<p align="center">
-<img src="resources/twitter_app.png"/>
-</p>
 
 Create a json file with the following structure:
 
