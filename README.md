@@ -15,7 +15,10 @@ I have used GCP Free trial is used for using Cloud Natural Lanuguage API. So fol
 
 ## Requirements
 
-- [![Hello](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+- <p>
+  <a href="https://www.python.org/" target="_blank">
+   <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg">
+ </a>
 - GCP Account.
 - Twitter Developer account.
 
