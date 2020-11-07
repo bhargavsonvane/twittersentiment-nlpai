@@ -30,32 +30,22 @@ Dashboards are one way for you to view and analyze metric data. The Cloud Consol
 GCP project is a way for managing the services that we want to include among your organization and to hold control expenses, access authorizations to services that are configured within GCP.
 
 
-#### Activating the NLP Service and obtaining permission key in GCP
-
-To use the Cloud Natural Language API in our application, we must activate said API within the project and obtain an access key in JSON format, this procedure is detailed in the following images:
-
-When activating the API, it asks to be linked to the billing account.
-
-Now, we obtain the credentials in json format that will allow us to connect to the NLP service of our project:
-
-We now need to create a service account, which can have any name:
-
-We continue configuring it as indicated and we get the json file
+#### NLP API Activation
+Cloud Natural Lanuguage API must be activated within the project and for that GCP creates a service access key in the JSON file.
+Steps are as follows:
+1. Link your billing account for activating the API.
+2. Create credentials is JSON format for connecting to the NLP API.
+3. Create a service account.
+4. Get the JSON file.
 
 
 ### Twitter Developers account
 
-Since the interest of the application is not only sentiment analysis, but that these come from Twitter, we must have an account on [Twitter Developers](https://developer.twitter.com/en).
+The tweets source is Twitter, so Twitter Developer Account is essential.
+For accessing Twitter API, requires creating an APP within the Twitter Developers Account. After that, twiiter api keys & tokens need to be created. [details](https://developer.twitter.com/en/apps)
 
-This step is perhaps the one that takes the most time, since accessing the Twitter API requires creating an App within the Twitter Developers account, and for this we must fill out a record where we expose the use that we will give to said application.
-
-Once the creation of the App is authorized, we can navigate to its  [details](https://developer.twitter.com/en/apps). There we look at the Keys and Tokens tab, if necessary, click on the “Create” button in “Access token & access token secret”.
-
-
-Create a json file with the following structure:
-
+JSON file:
 Keys.json:
-
 ```
 {
     "Access_token":"Twitter-Access-Token",
@@ -64,9 +54,9 @@ Keys.json:
     "API_secret key":"Twitter-API-Secret Key"
 }
 ```
+Now we have everything to need to sentiment the tweets using NLP API.
 
-Once you have this file, you have everything you need to test the application.
-## Testing the application
+## Test Your Effort!
 
 To verify that everything works correctly, a file is included that can be run on the command line and observe the results.
 
@@ -104,10 +94,9 @@ export GOOGLE_APPLICATION_CREDENTIALS=<path-to-gcp-credential-file.json>
 
 **Note:** This may be different for Windows Operating Systems, in my case I am on Ubuntu but it should work in the same way for Mac environments.
 
-### Run test file
+### Here You GO!! Run test file
 
 ```
-python3 application.py -q NLP
+python3 application.py -q GCP
 ```
-
-You can replace "NLP" with any other search query of interest, if it is more than one word it should be used in double quotes: "Machine Learning".
+Note here, GCP is the search term, use double quotes for more words in search terms like "India GDP".
