@@ -15,25 +15,19 @@ I have used GCP Free trial is used for using Cloud Natural Lanuguage API. So fol
 
 ## Requirements
 
-- <p>
-  <a href="https://www.python.org/" target="_blank">
-   <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg">
- </a>
+- Python version >= 3.4
 - GCP Account.
 - Twitter Developer account.
 
 
-### GCP account
+### GCP Account Setup
 
-If it is the first time that we configure it, Google will give us 300 USD in credits for free to be used in 12 months.
+The Google Cloud Free Program comprises the following: 90-day, $300 Free Trial: New Google Cloud and Google Maps Platform users can take advantage of a 90-day trial period that includes $300 in free Cloud Billing credits to explore and evaluate Google Cloud and Google Maps Platform products and services.
 
-Once the account is created, we enter the GCP console . If it is the first time that we use it, it will ask us for a series of data, including information about a Credit Card. Since the Terms of Service can change at any time, I recommend reading them carefully . Currently they indicate that they only require that information to verify the account and so that there is a means of collection in case expenses are incurred.
+#### GCP Project Creation
 
-#### Creation of the Project in GCP
-
-Once inside the console, the dashboard will be shown where a summary of the services that we have active will appear, if it is the first time you use it, it will surely not have much information.
-
-A project in GCP is nothing more than a way to manage the services that we want to incorporate centrally. Projects allow you to control expenses and access authorizations to services that are configured within GCP. In order to use any service it is necessary to create a project.
+Dashboards are one way for you to view and analyze metric data. The Cloud Console provides predefined dashboards that require no setup or configuration.  
+GCP project is a way for managing the services that we want to include among your organization and to hold control expenses, access authorizations to services that are configured within GCP.
 
 
 #### Activating the NLP Service and obtaining permission key in GCP
