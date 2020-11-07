@@ -15,7 +15,7 @@ I have used GCP Free trial is used for using Cloud Natural Lanuguage API. So fol
 
 ## Requirements
 
-- Python > = 3.4 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+- [![Hello](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 - GCP Account.
 - Twitter Developer account.
 
