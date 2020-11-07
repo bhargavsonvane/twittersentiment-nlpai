@@ -7,18 +7,17 @@
  </a>
 </p>
 
-# Sentiment Analysis in Tweets
+# Tweets Sentiment Analysis
 
-In this project, we are going to see how we can perform Sentiment analysis on Tweets without having to have advanced knowledge of NLP techniques.
-
-**IMPORTANT NOTE:** In this project we are going to use a free layer of the Google Cloud Platform (GCP) text analysis service. How to request access to the respective API and use it for the required purpose will be briefly explained. However, it is recommended that each step taken during the configuration of this service be done in a conscious way, since failure to do so may incur unplanned costs.
+This project comprises of performing Sentiment Analysis on tweets without having prior knowledge of NLP techinques.
+I have used GCP Free trial is used for using Cloud Natural Lanuguage API. So follow my steps carefully to avoid costs of that service. 
 
 
 ## Requirements
 
-- Python> = 3.4
-- Account in GCP.
-- Developer account on Twitter.
+- Python > = 3.4 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+- GCP Account.
+- Twitter Developer account.
 
 
 ### GCP account
